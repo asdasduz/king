@@ -21,7 +21,7 @@ $maxAgeSeconds = 300;
 header('Cache-Control: public, max-age=' . $maxAgeSeconds);
 
 // Upstream JSON URL (updated)
-$upstreamUrl = 'https://asdasduz.github.io/king/check.json';
+$upstreamUrl = 'https://asdasduz.github.io/king/check1.php';
 
 // Fetch with cURL
 function fetchJsonWithCurl($url) {
@@ -92,4 +92,5 @@ try {
 	echo json_encode(['error' => $e->getMessage()]);
 }
 ?>
+
 
