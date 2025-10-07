@@ -1,12 +1,19 @@
 <?php
-// CORS
-$allowedOrigin = 'https://wormate.io';
-header('Vary: Origin');
-if (isset($_SERVER['HTTP_ORIGIN']) && $_SERVER['HTTP_ORIGIN'] === $allowedOrigin) {
-	header('Access-Control-Allow-Origin: ' . $allowedOrigin);
-	header('Access-Control-Allow-Methods: GET, OPTIONS');
-	header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept');
+// CORS (reflect requesting origin and headers for broader compatibility)
+header('Vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers');
+if (isset($_SERVER['HTTP_ORIGIN'])) {
+	header('Access-Control-Allow-Origin: ' . $_SERVER['HTTP_ORIGIN']);
+} else {
+	header('Access-Control-Allow-Origin: *');
 }
+header('Access-Control-Allow-Methods: GET, OPTIONS');
+$requestHeaders = isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS'])
+	? trim($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS'])
+	: 'Origin, X-Requested-With, Content-Type, Accept';
+if ($requestHeaders !== '') {
+	header('Access-Control-Allow-Headers: ' . $requestHeaders);
+}
+header('Access-Control-Max-Age: 600');
 
 // Preflight
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
@@ -21,7 +28,7 @@ $maxAgeSeconds = 300;
 header('Cache-Control: public, max-age=' . $maxAgeSeconds);
 
 // Upstream JSON URL (updated)
-$upstreamUrl = 'https://asdasduz.github.io/king/check1.php';
+$upstreamUrl = 'https://asdasduz.github.io/king/api/check1.php';
 
 // Fetch with cURL
 function fetchJsonWithCurl($url) {
@@ -92,5 +99,4 @@ try {
 	echo json_encode(['error' => $e->getMessage()]);
 }
 ?>
-
 
