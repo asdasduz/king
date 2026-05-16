@@ -5532,7 +5532,7 @@ var vLS4d59d9b6cc24740ef3ab = "073ded1edcedd11f60005ae969cabf11";
                 dxb: "https://wormzilla.io",
                 sin: "https://wormzilla.io",
                 tok: "https://wormzilla.io",
-                local: "wss://nycsam01.wormworld.io"
+                local: "wss://nycsam01.wormzilla.io"
             }
               , A = ["sao", "dal", "hil", "vin", "fra", "gra", "sin", "tok", "dxb"];
             $("#mm-params-nickname").attr("maxlength", k);
