@@ -55,7 +55,7 @@ select,
 .app {
   height: 100dvh;
   width: 100%;
-  background: linear-gradient(180deg, rgb(5 16 26 / 78%), rgb(8 28 46 / 54%)), url(/img/nyy.webp) center / cover no-repeat;
+  background: linear-gradient(180deg, rgb(5 16 26 / 78%), rgb(8 28 46 / 54%)), url(/king/img/nyy.webp) center / cover no-repeat;
   position: relative;
 }
 .app.is-loading .stage-wrap {
