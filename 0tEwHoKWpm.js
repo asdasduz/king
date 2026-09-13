@@ -1,23 +1,11 @@
-// Client-side VIP state
+// Local VIP mode (testing only; not suitable for paid-product authorization)
 const account = {
-  vip: true,
-  vipExpires: null // null = lifetime
+    vip: true,
+    vipExpires: null // null = lifetime
 };
 
-const isVip =
-  account.vip === true &&
-  (account.vipExpires === null || Date.now() < account.vipExpires);
-
-// Server-provided VIP status (do not trust client-side VIP state for authorization)
-function applyVipStatus(data) {
-  if (!data || typeof data.premium !== "boolean") return false;
-
-  account.vip = data.premium === true;
-  account.vipExpires =
-    account.vip && data.vipExpires == null ? null : data.vipExpires || 0;
-
-  return account.vip;
-}
+const isVip = account.vip === true &&
+    (account.vipExpires === null || Date.now() < account.vipExpires);
 
 (()=>{const VIP_PRODUCTS = {
     "pri_01kg2h61z85ycxsm3e5bv4ser2": "vip_1_month",
