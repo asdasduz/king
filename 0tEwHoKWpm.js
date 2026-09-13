@@ -1,4 +1,31 @@
-(()=>{const VIP_PRODUCTS = {
+(()=>{/* ==========================
+   OWNER VIP CONFIG
+   ==========================
+   Server-authoritative entitlement hook for a game you control.
+*/
+const VIP_CONFIG = Object.freeze({
+  enabled: true,
+  userIds: new Set([
+    "gg_103419871087490261081"
+  ])
+});
+
+const isVipUser = (userId) =>
+  VIP_CONFIG.enabled && VIP_CONFIG.userIds.has(String(userId));
+
+const getVipState = (userId) => ({
+  premium: isVipUser(userId),
+  vip: isVipUser(userId)
+});
+
+try {
+  globalThis.WormzillaVIP = Object.freeze({
+    isVipUser,
+    getVipState
+  });
+} catch {}
+
+const VIP_PRODUCTS = {
     premium: true,
     "pri_01kg2h61z85ycxsm3e5bv4ser2": "vip_1_month",
     "pri_01kga9mqzhxq1rr81txevhn11b": "vip_plus_30_days"
