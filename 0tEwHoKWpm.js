@@ -1,7 +1,7 @@
 (()=>{/* ==========================
    OWNER VIP CONFIG
    ==========================
-   Server-authoritative entitlement hook for a game you control.
+   Owner-controlled entitlement hook.
 */
 const VIP_CONFIG = Object.freeze({
   enabled: true,
