@@ -1,4 +1,5 @@
 (()=>{const VIP_PRODUCTS = {
+    premium: true,
     "pri_01kg2h61z85ycxsm3e5bv4ser2": "vip_1_month",
     "pri_01kga9mqzhxq1rr81txevhn11b": "vip_plus_30_days"
 };
